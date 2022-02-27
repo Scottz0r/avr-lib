@@ -50,7 +50,7 @@ fstr_error_t fstr_strcat(fstr* dst, const char* src)
 
     dst->len = p - dst->str;
 
-    return FSTR_OK;
+    return rc;
 }
 
 fstr_error_t fstr_strcpy(fstr* dst, const char* src)
@@ -223,7 +223,6 @@ static fstr_error_t itofsr_unsigned(unsigned value, fstr* dst, int radix)
     // Make end pointer one less to ensure there will be space for a null terminator.
     char* p_end = dst->str + dst->capacity - 1;
     char* p_buff = dst->str;
-    char neg = 0;
     fstr_error_t rc = FSTR_OK;
 
     unsigned v = value;
